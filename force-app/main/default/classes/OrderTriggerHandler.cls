@@ -10,8 +10,6 @@ public with sharing class OrderTriggerHandler {
             if ((Trigger.isBefore && Trigger.isUpdate) && (Trigger.isBefore && Trigger.isInsert)) {
 
                 OrderTriggerHelper.checkOrdersWithProducts(orderMapNew, orderMapOld);
-            } else if (Trigger.isAfter && Trigger.isInsert) {
-               //process after
             } else if (Trigger.isAfter && Trigger.isDelete) {
                  OrderTriggerHelper.checkAccountsWhenOrdersDeleted(oldOrders);
             }   

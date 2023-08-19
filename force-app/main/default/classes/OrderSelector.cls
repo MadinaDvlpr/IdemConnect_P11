@@ -1,7 +1,5 @@
 public with sharing class OrderSelector {
-
-    
-    
+   
     public static List<Order> getOrdersAll(){
         List<Order> orderList = [SELECT Id, 
                                         AccountId, 
@@ -12,8 +10,4 @@ public with sharing class OrderSelector {
                                   FROM Order];
         return orderList;
     }
- 
-  
-
-
 }

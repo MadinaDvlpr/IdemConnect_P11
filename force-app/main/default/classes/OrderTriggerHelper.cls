@@ -48,7 +48,7 @@ public with sharing class OrderTriggerHelper {
         update accountsToUpdate;		
     }
     
-    //RG 03 requete imbriquee pour retourner tous les comptes sans commandes et pas activité type appel
+    //RG 03 Set up a Call reminder when account as no order
     public static void checkForTaskCall(List<Account> accountsWithoutTask){    
         List<Account> accountsWithoutCall = new List<Account>();
         
