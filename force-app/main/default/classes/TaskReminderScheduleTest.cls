@@ -14,7 +14,6 @@ private class TaskReminderScheduleTest {
         String jobId = System.schedule(JOB_NAME,
                                        CRON_EXP,
                                        new TaskReminderSchedule());
-        //A VERIFIER
         CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime,CronJobDetailId,State FROM CronTrigger WHERE id = :jobId];
         
         System.assertEquals(
@@ -35,7 +34,6 @@ private class TaskReminderScheduleTest {
             'Tasks exist before job has run'
         );
         
-        //revoir pris sur salesforce help pas sure du resultat
         Date jobRunDate = Date.today().addMonths(1).toStartOfMonth().toStartOfWeek();
           
         

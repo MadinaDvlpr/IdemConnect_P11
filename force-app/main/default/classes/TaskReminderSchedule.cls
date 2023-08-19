@@ -1,7 +1,6 @@
 global without sharing class TaskReminderSchedule implements Schedulable{
     
-    //Scheduler to be run on the 1st Monday of every months A VERIFIER AVEC WILLIAM
-    //NE VA ETRE LANCé qu'un fois et ne servira a rien. Donc mettre ce type de
+    //Scheduler to be run on the 1st Monday of every months 
     public static String CRON_EXP = '0 0 0 ? * 2#1 *';
     
     global void execute(SchedulableContext sc){

@@ -56,13 +56,11 @@ public class TestDataFactory {
     public static Order createOrder(String orderName, Id accountID, Id contractID, Id pricebookId){
         Order orderCreated = new Order(
             Name = orderName,
-            AccountId = accountID, //Required
+            AccountId = accountID, 
             ContractId = contractID,
             Status = 'Draft',
             EffectiveDate = Date.today(),
-            // essential for the creation of OrderItem
-            Pricebook2Id =  pricebookId //Required
-            //TotalAmount = not writable This is Why Order links to a Product2 with OrderItem
+            Pricebook2Id =  pricebookId 
         );
         return orderCreated;
     }
@@ -164,7 +162,6 @@ public class TestDataFactory {
     public static Contract createContract(Id accountID){
         Contract contract = new Contract(
                 AccountId = accountID,
-                //can't create a contract with the Status set to Activated
                 Status = 'Draft',
                 StartDate = Date.today(),
                 ContractTerm = 6
@@ -185,7 +182,7 @@ public class TestDataFactory {
             Quantity = 24,
             UnitPrice = 240,
             Product2Id = productId,
-            PricebookEntryId = pricebookEntryId //Required
+            PricebookEntryId = pricebookEntryId 
 
         );
         return orderItemToInsert;
@@ -194,7 +191,6 @@ public class TestDataFactory {
     public static List<OrderItem> createOrderItemsList(List<Order> orderList, Id product2Id, Id pricebookEntryId){
         List<OrderItem> orderItemsList = new List<OrderItem>();
         for(Order orderCurrent : orderList){
-            //(Order orderForThisTest, Product2 product2ForThisTest, PricebookEntry pricebookEntryForThisTest)
             orderItemsList.add(TestDataFactory.createOrderItem(orderCurrent.Id, product2Id, pricebookEntryId));
         }        
         

@@ -24,16 +24,10 @@ public class OrderTriggerHelperTest {
         Product2 productForThisTest = ProductSelector.getProduct(productName);
         TestDataFactory.createPriceBookEntryForPricebookStandard(productForThisTest);
         TestDataFactory.createPriceBookEntry(pricebookForThisTest, productForThisTest);
-        //recup commandes det comptes
         List<Order> ordersList = OrderSelector.getOrdersAll();
         List<Account> accountsList = AccountSelector.getAccountsAll();
 
-		//prevoir tests negatifs
-		//utiliser la fonction database.insert database.update (est ce qu'on insert tt ou pas ? 
-		//database save result succes ou erreur 
-		//regarder si y'a une erreur )
-		//
-		//
+		
 		List<Order> ordersListForThisTest = [
             SELECT Id, AccountId, Status, (
                 SELECT Id, UnitPrice, Quantity, OrderId
@@ -43,8 +37,8 @@ public class OrderTriggerHelperTest {
         ];
         
         for (Order orderCurrent : ordersListForThisTest) {
-            orderCurrent.Status = 'Activated';//We want to change the status to activated
-            delete orderCurrent.OrderItems;//We add to manually delete the order items create by the TestDataFactory
+            orderCurrent.Status = 'Activated';
+            delete orderCurrent.OrderItems;
         }
         
         Test.startTest();
@@ -86,10 +80,6 @@ public class OrderTriggerHelperTest {
         Account accountTest = AccountSelector.getAccount('New Account Test');
         List <Order> ordersListForAccount = TestDataFactory.createAccountWithOrders(50, accountTest.Id);
         
-        /**recup commandes et comptes
-        List<Order> ordersList = OrderSelector.getOrdersAll();
-        List<Account> accountsList = AccountSelector.getAccountsAll();
-        **/
         
             
             Test.startTest();
@@ -114,7 +104,6 @@ public class OrderTriggerHelperTest {
         insert accountTest;
         
         List <Order> ordersListForAccount = TestDataFactory.createAccountWithOrders(2, accountTest.Id);
-             //pas de upsert update ou delete dans for
             
        Test.startTest();
        delete ordersListforAccount;

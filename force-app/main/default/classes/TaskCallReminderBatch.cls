@@ -12,17 +12,14 @@ global class TaskCallReminderBatch implements Database.Batchable<sObject>, Sched
 
     global Database.QueryLocator start(Database.BatchableContext info) {
         
-        //probleme avec la query
         String query = 'SELECT Id, OwnerId, (SELECT Id FROM Tasks WHERE Type = \'Call\') FROM Account WHERE Active__c = false';
         return Database.getQueryLocator(query);  
     }
     global void execute(Database.BatchableContext info, List<Account> scope) {
-        //pas d'appel de classe trigger dans execute
         
         OrderTriggerHelper.checkForTaskCall(scope);
     }
     
-    //finish à vérifier
     global void finish(Database.BatchableContext info) {
         
     }
