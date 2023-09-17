@@ -1,9 +1,11 @@
 # How to Deploy This app on your org ?
 To deploy this app on your org you can use this tool that will deploy directly from Github into a Salesforce org. Just click the Saleforce Heroku deploy button here and fill the blank field :
-<a href="https://githubsfdeploy.herokuapp.com/?owner=Magda-dev;repo=IdemConnect_P11">
+<a href="https://githubsfdeploy.herokuapp.com/?owner=Magda-dev&repo=IdemConnect_P11">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
-</a># Salesforce DX Project: Next Steps
+</a>
+
+# Salesforce DX Project: Next Steps
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
